@@ -1,5 +1,6 @@
 import traceback
 
+# Task 1
 def diary():
     opened = False
     prompt = "What happened today? "

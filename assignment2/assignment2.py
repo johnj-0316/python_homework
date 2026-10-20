@@ -4,6 +4,7 @@ import os
 import custom_module
 from datetime import datetime
 
+# Task 2
 def read_employees():
     emp_dict = {}
     emp_list = []
@@ -39,15 +40,18 @@ def read_employees():
     
 employees = read_employees() or {}
 
+# Task 3
 def column_index(column: str):
     return employees["fields"].index(column)
 
 employee_id_column = column_index("employee_id")
 
+# Task 4
 def first_name(row_num: int):
     index = column_index("first_name")
     return employees["rows"][row_num][index]
 
+# Task 5
 def employee_find(employee_id: int):
     def employee_match(row):
         return int(row[employee_id_column]) == employee_id
@@ -55,14 +59,17 @@ def employee_find(employee_id: int):
     matches=filter(employee_match, employees["rows"])
     return list(matches)
 
+# Task 6
 def employee_find_2(employee_id: int):
     return list(filter(lambda row: int(row[employee_id_column]) == employee_id, employees["rows"]))
 
+# Task 7
 def sort_by_last_name():
     index = column_index("last_name")
     employees["rows"].sort(key=lambda row: row[index])
     return employees["rows"]
 
+# Task 8
 def employee_dict(row: list) -> dict:
     headers = employees["fields"]
     emp_dict = {}
@@ -75,6 +82,7 @@ def employee_dict(row: list) -> dict:
         
     return emp_dict
 
+# Task 9
 def all_employees_dict():
     rows = employees["rows"]
     emps_dict = {}
@@ -85,14 +93,17 @@ def all_employees_dict():
         
     return emps_dict
 
+# Task 10
 def get_this_value():
     return os.getenv("THISVALUE")
 
+# Task 11
 def set_that_secret(new_secret: str):
     custom_module.set_secret(new_secret)
     
 set_that_secret("my_secret")
 
+# Task 12
 def read_minutes():
     def csv_to_dict(link: str):
         d = {}
@@ -120,6 +131,7 @@ def read_minutes():
 
 minutes1, minutes2 = read_minutes()
 
+# Task 13
 def create_minutes_set():
     global minutes1, minutes2
     minutes1 = minutes1 or {}
@@ -128,12 +140,14 @@ def create_minutes_set():
 
 minutes_set = create_minutes_set()
 
+# Task 14
 def create_minutes_list():
     min_list = list(minutes_set)
     return list(map(lambda x: (x[0], datetime.strptime(x[1], "%B %d, %Y")), min_list))
 
 minutes_list = create_minutes_list()
 
+# Task 15
 def write_sorted_list():
     global minutes1, minutes2
     minutes1 = minutes1 or {}
