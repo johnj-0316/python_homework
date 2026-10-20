@@ -158,6 +158,6 @@ def write_sorted_list():
     with open("./minutes.csv", "w", newline="") as m_csv:
         writer = csv.writer(m_csv)
         writer.writerow(minutes1["fields"])
-        writer.writerows(minutes1["rows"])
+        writer.writerows(min_list_converted)
         
     return list(min_list_converted)
