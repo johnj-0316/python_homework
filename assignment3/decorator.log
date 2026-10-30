@@ -1,0 +1,12 @@
+hello_world
+None
+None
+None
+pos_args
+('hey',)
+None
+True
+key_args
+None
+{'test': 'testing!'}
+<function logger_decorator at 0x1052431c0>
